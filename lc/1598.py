@@ -1,10 +1,10 @@
 class Solution:
     def minOperations(self, logs: List[str]) -> int:
-        folders = []
+        folders = 0 
         for log in logs:
             if log == '../':
                 if folders:
-                    folders.pop()
+                    folders -= 1
             elif log != './':
-                folders.append(log)
-        return len(folders)
+                folders += 1
+        return folders
